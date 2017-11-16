@@ -35,6 +35,7 @@ function initialize()
 	ship.title = "something"
 	ship.name = "something2"
 	ship.crew = ship.minCrew
+	ship:addScript("ai/patrol.lua")
 
 	TurretGenerator.initialize(random():createSeed())
 	local turret = TurretGenerator.generateArmed(x, y)

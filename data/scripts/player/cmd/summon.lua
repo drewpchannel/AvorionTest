@@ -14,12 +14,14 @@ function initialize()
 	player:sendChatMessage("Price", 0, str)
 
 	local faction = Galaxy():createRandomFaction(Sector():getCoordinates())
-	local plan = PlanGenerator.makeFreighterPlan(Faction())
+	--local plan = PlanGenerator.makeFreighterPlan(Faction())
+	local plan = LoadPlanFromFile("data/plans/AstrayasClass.xml")
 
 	local pos = random():getVector(-1000, 1000)
     pos = MatrixLookUpPosition(-pos, vec3(0, 1, 0), pos)
 
-	Sector():createShip(faction, "test", plan, pos) 
+	local ship = Sector():createShip(faction, "test", plan, pos) 
+	ship.title = "something"
 
 	terminate()
 end

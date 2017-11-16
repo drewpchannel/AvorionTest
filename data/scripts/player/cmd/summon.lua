@@ -12,14 +12,19 @@ if onServer() then
 function initialize()
 	player = Player()
 	local str = "Testing ship summon"
-	player:sendChatMessage("Price", 0, str)
+	player:sendChatMessage("Debug", 0, str)
 
 	--local faction = Galaxy():createRandomFaction(Sector():getCoordinates())
 	--DB 1 changing faction name to make nme 
-	local faction = Galaxy():createFaction("Astrayans 7"%_T, 310, 0)
-	faction.initialRelations = -100000
-	faction.initialRelationsToPlayer = -100000
-	faction.staticRelationsToPlayers = false
+	local factionName = "Astrayanians 44"
+	local faction = Galaxy():findFaction(factionName)
+	if Galaxy():findFaction(factionName) == nil then
+		player:sendChatMessage("Debug", 0, "I made a new faction")
+	    faction = Galaxy():createFaction(factionName, 310, 0)
+	    faction.initialRelations = 0
+	    faction.initialRelationsToPlayer = -100000
+	    faction.staticRelationsToPlayers = true
+	end
 	--local plan = PlanGenerator.makeFreighterPlan(Faction())
 	local plan = LoadPlanFromFile("data/plans/AstrayasClass.xml")
 
@@ -29,7 +34,7 @@ function initialize()
 	local ship = Sector():createShip(faction, "Astrayas Class", plan, pos) 
 	ship.title = "something"
 	ship.name = "something2"
-	ship.crew= ship.minCrew
+	ship.crew = ship.minCrew
 
 	TurretGenerator.initialize(random():createSeed())
 	local turret = TurretGenerator.generateArmed(x, y)

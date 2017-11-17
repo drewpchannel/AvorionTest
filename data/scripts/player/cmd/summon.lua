@@ -35,7 +35,6 @@ function initialize()
 	ship.name = "something2"
 	ship.crew = ship.minCrew
 	ship:addScript("ai/patrol.lua")
-	ship:registerCallback("onEntityDestroyed", "onShipDestroyed")
 
 	TurretGenerator.initialize(random():createSeed())
 	local turret = TurretGenerator.generateArmed(x, y)

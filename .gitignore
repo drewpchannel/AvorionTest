@@ -5,6 +5,9 @@
 !.gitignore
 !summon.lua
 !README.md
+!bossConfig.lua
+!bossDeath.lua
+!bossSector.lua
 # etc...
 
 # ...even if they are in subdirectories

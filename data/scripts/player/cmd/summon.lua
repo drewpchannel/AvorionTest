@@ -35,6 +35,7 @@ if onServer() then
 		ship.name = "something2"
 		ship.crew = ship.minCrew
 		ship:addScript("ai/patrol.lua")
+		ship:addScript("player/cmd/bossDeath.lua")
 
 		TurretGenerator.initialize(random():createSeed())
 		local turret = TurretGenerator.generateArmed(x, y)
@@ -43,13 +44,8 @@ if onServer() then
 
 		ShipUtility.addTurretsToCraft(ship, turret, numTurrets)
 	    Loot(ship.index):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, Rarity(RarityType.Exotic), WeaponType.RepairBeam)))
-
-	    local testR = ship:registerCallback("onDestroyed", "bossDead")
-	    print(testR)
 		terminate()
 	end
 end
 
-function bossDead()
-	print("dead")
-end
+

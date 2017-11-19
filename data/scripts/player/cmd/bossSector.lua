@@ -10,7 +10,8 @@ local TurretGenerator = require ("turretgenerator")
 local config = require("player/cmd/bossConfig")
 
 function initialize()
-	Sector():registerCallback("onPlayerEntered", "bossInit")
+	-- Sector():registerCallback("onPlayerEntered", "bossInit")
+	Sector():registerCallback("onPlayerEntered", "bossTimer")
 end
 
 function bossInit ()
@@ -48,5 +49,27 @@ function welcomeText ()
 	local players = {Sector():getPlayers()}
     for _, player in pairs(players) do
     	player:sendChatMessage("Warning", 0, config.welcomeMessage)
+    end
+end
+
+function bossTimer ()
+	local timer = Timer()
+	local pastTime = 0
+
+	timer:start()
+	tellPlayers("starting timer")
+	while timer.seconds < 10 do
+		local currentTime = timer.seconds
+		if currentTime > pastTime then
+			tellPlayers(timer.seconds)
+		end
+		pastTime = timer.seconds
+	end
+end
+
+function tellPlayers (message)
+	local players = {Sector():getPlayers()}
+    for _, player in pairs(players) do
+    	player:sendChatMessage("Server", 0, message)
     end
 end

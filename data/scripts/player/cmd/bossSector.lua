@@ -8,9 +8,10 @@ local ShipUtility = require ("shiputility")
 local TurretGenerator = require ("turretgenerator")
 
 local config = require("player/cmd/bossConfig")
+local timer = Timer()
+local pastTime = 0
 
 function initialize()
-	-- Sector():registerCallback("onPlayerEntered", "bossInit")
 	Sector():registerCallback("onPlayerEntered", "bossTimer")
 end
 
@@ -53,17 +54,14 @@ function welcomeText ()
 end
 
 function bossTimer ()
-	local timer = Timer()
-	local pastTime = 0
-
-	timer:start()
-	tellPlayers("starting timer")
-	while timer.seconds < 10 do
-		local currentTime = timer.seconds
-		if currentTime > pastTime then
-			tellPlayers(timer.seconds)
-		end
-		pastTime = timer.seconds
+	tellPlayers("The boss has been summoned: " .. timer.seconds ..  " ago")
+	if timer.seconds < 1 then
+		bossInit()
+		timer:start()
+	end
+	if timer.seconds > 3600 then
+		timer:reset()
+		bossInit()
 	end
 end
 

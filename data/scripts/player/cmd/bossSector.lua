@@ -59,7 +59,7 @@ function bossTimer ()
 		bossInit()
 		timer:start()
 	end
-	if timer.seconds > 3600 then
+	if timer.seconds > config.respawnTime then
 		timer:reset()
 		bossInit()
 	end

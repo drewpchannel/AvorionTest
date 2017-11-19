@@ -10,4 +10,6 @@ varrs.welcomeMessage = "An enemy fighter has been spotted patrolling this sector
 varrs.deathMessage = "Thank you for destroying this outlaw"
 --should go to every player in the sector
 varrs.deathRewards = 3000000
+--time in seconds to respawn boss
+varrs.respawnTime = 3600
 return varrs

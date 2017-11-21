@@ -12,6 +12,6 @@ function initialize(...)
 	for _, player in pairs(players) do
 		player:sendChatMessage("Server", 0, "This sector will now spawn a boss upon entry")
 	end
-    Sector():addScriptOnce("player/cmd/bossSector.lua", ...)
+    Sector():addScript("player/cmd/bossSector.lua", ...)
 	terminate()
 end

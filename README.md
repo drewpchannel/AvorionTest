@@ -4,7 +4,7 @@
 Adding the /summon command to admins \ moderators will let them setup a trigger in the sector that they are currently in.  Players who enter this sector will trigger the boss to spawn in and he will be hostile.
 
 ### Installation
-data/scripts/plans gets the say.lua (the file with out path at the top)
+data/scripts/plans gets the say.lua (the file without path at the top)
 data/scripts/player/cmd gets the boss*.lua files and the other summon.lua
 data/plans gets your workshop ship plans (you can sub to the ship, use it in game, save it and find it in your appdata/roaming/avorion folder)
 in that same appdata folder you will find your admin.xml where you will need to add in the summon command (or else you will get unknown command)

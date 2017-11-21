@@ -1,5 +1,5 @@
 function execute(sender, commandName, ...)
-	Player(sender):addScriptOnce("cmd/summon.lua")
+	Player(sender):addScriptOnce("cmd/summon.lua", ...)
     return 0, "", ""
 end
 

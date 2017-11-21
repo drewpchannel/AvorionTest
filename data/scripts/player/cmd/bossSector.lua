@@ -6,12 +6,13 @@ require ("stringutility")
 local PlanGenerator = require ("plangenerator")
 local ShipUtility = require ("shiputility")
 local TurretGenerator = require ("turretgenerator")
-
-local config = require("player/cmd/bossConfig")
+local originalConfig = require("player/cmd/bossConfig")
+local config = {}
 local timer = Timer()
 local pastTime = 0
 
-function initialize()
+function initialize(...)
+	parseCommand(...)
 	Sector():registerCallback("onPlayerEntered", "bossTimer")
 end
 
@@ -71,3 +72,33 @@ function tellPlayers (message)
     	player:sendChatMessage("Server", 0, message)
     end
 end
+
+function parseCommand(...)
+	local i = 1
+	config = originalConfig
+	for _, customValue in pairs({...}) do
+		if customValue == nil or customValue == "m" then
+			i = i + 1
+		else
+			print(config[config.index[i]] .. " is set to: " .. customValue)
+			config[config.index[i]] = customValue
+			i = i + 1
+		end
+	end
+end
+
+--[[ DB 9 ref to config
+varrs.factionName = "Atronians"
+--ship plans should be saved to data/plans
+varrs.shipXML = "Idk3.xml"
+varrs.title = "something"
+varrs.name = "something2"
+--sets the amount of damage
+varrs.turrets = 3000
+varrs.welcomeMessage = "An enemy fighter has been spotted patrolling this sector"
+varrs.deathMessage = "Thank you for destroying this outlaw"
+--should go to every player in the sector
+varrs.deathRewards = 3000000
+--time in seconds to respawn boss
+varrs.respawnTime = 3600
+]]

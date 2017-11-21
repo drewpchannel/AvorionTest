@@ -14,4 +14,17 @@ varrs.deathMessage = "Thank you for destroying this outlaw"
 varrs.deathRewards = 3000000
 --time in seconds to respawn boss
 varrs.respawnTime = 3600
+
+varrs.index = {
+	"factionName",
+	"shipXML",
+	"title",
+	"name",
+	"turrets",
+	"welcomeMessage",
+	"deathMessage",
+	"deathRewards",
+	"respawnTime"
+} 
+
 return varrs

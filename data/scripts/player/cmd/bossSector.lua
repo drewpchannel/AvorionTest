@@ -17,7 +17,6 @@ function initialize(...)
 end
 
 function bossInit ()
-	welcomeText()
 	local factionName = config.factionName
 	local faction = Galaxy():findFaction(factionName)
 	if Galaxy():findFaction(factionName) == nil then
@@ -49,12 +48,12 @@ end
 function welcomeText ()
 	local players = {Sector():getPlayers()}
     for _, player in pairs(players) do
-    	player:sendChatMessage("Warning", 0, config.welcomeMessage)
+    	player:sendChatMessage("Warning"%_t, 3, "Enemies have been seen patrolling this sector " .. timer.seconds .. " seconds ago."%_t)
     end
 end
 
 function bossTimer ()
-	tellPlayers("The boss has been summoned: " .. timer.seconds ..  " ago")
+	welcomeText()
 	if timer.seconds < 1 then
 		bossInit()
 		timer:start()
@@ -79,7 +78,6 @@ function parseCommand(...)
 		if customValue == nil or customValue == "m" then
 			i = i + 1
 		else
-			print(config[config.index[i]] .. " is set to: " .. customValue)
 			config[config.index[i]] = customValue
 			i = i + 1
 		end

@@ -1,5 +1,3 @@
--- take in config, let user decide what to replace...  check and replace values intable
-
 local varrs = {}
 varrs.factionName = "Atronians"
 --ship plans should be saved to data/plans

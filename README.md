@@ -15,6 +15,21 @@ server/data/scripts/player/cmd/bossConfig
 ### In game
 Fly to a sector, do /summon.  When you fly out and back in you will see a boss and a message warning you about the boss
 
+To set custom values (space is not working yet, so the messages might be tough)
+
+	so /summon Empire deathstar.xml StarDestroyer DarthBuydioer 3000 m m 4000000 7200
+	This would spawn a stardestroyer with the empire faction ect.  welcomeMessage would be skipped because I put m in there.  You can skip any of these values and it will get the information from the bossConfig.lua.  Also doing just /summon Empire, would only change the empire (the rest will be skipped automaticly)
+
+	"factionName",
+	"shipXML",
+	"title",
+	"name",
+	"turrets",
+	"welcomeMessage",
+	"deathMessage",
+	"deathRewards",
+	"respawnTime"
+
 ### Bugs
 
-some weird error pops up saying that it can not find the summon.lua.  it can and it is looking in the correct spot... idk
+some weird error pops up saying that it can not find the summon.lua.  it can, it runs and it is looking in the correct spot... idk

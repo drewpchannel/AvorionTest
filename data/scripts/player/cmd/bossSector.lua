@@ -40,7 +40,6 @@ function bossInit ()
 
 	TurretGenerator.initialize(random():createSeed())
 	local turret = TurretGenerator.generateArmed(x, y)
-	-- Number of turets gets reduced and replaced with a damage multiplier
 	local numTurrets = config.turrets
 
 	ShipUtility.addTurretsToCraft(ship, turret, numTurrets)
@@ -86,19 +85,3 @@ function parseCommand(...)
 		end
 	end
 end
-
---[[ DB 9 ref to config
-varrs.factionName = "Atronians"
---ship plans should be saved to data/plans
-varrs.shipXML = "Idk3.xml"
-varrs.title = "something"
-varrs.name = "something2"
---sets the amount of damage
-varrs.turrets = 3000
-varrs.welcomeMessage = "An enemy fighter has been spotted patrolling this sector"
-varrs.deathMessage = "Thank you for destroying this outlaw"
---should go to every player in the sector
-varrs.deathRewards = 3000000
---time in seconds to respawn boss
-varrs.respawnTime = 3600
-]]

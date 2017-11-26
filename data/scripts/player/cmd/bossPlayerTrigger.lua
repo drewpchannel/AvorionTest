@@ -23,14 +23,12 @@ function checkMilitaryOutposts ()
     if foundStation == nil then
     else
 	    bulletin = createMission(foundStation)
-	    print("bulletin type: " .. type(bulletin))
 	    foundStation:invokeFunction("bulletinboard", "postBulletin", bulletin)
 	end
 end
 
 function createMission (foundStation)
 	print("DB 25 check that changes hit createMission")
-	-- find a sector that has pirates
 	local specs = SectorSpecifics()
 	local x, y = Sector():getCoordinates()
 	local coords = specs.getShuffledCoordinates(random(), x, y, 2, 15)

@@ -14,7 +14,6 @@ function initialize ()
 end
 
 function createMission (foundStation)
-	-- find a sector that has pirates
 	local specs = SectorSpecifics()
 	local x, y = Sector():getCoordinates()
 	local coords = specs.getShuffledCoordinates(random(), x, y, 2, 15)

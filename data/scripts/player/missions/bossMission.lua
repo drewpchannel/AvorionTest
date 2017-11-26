@@ -1,5 +1,3 @@
---DB 27 add finish to boss script or whatever to make it stop hitting after the player has spawned el hefe
-
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
 require ("galaxy")
@@ -14,20 +12,15 @@ local saveY = 0
 
 function initialize(giverIndex, x, y, reward)
     if giverIndex == nil then 
-        print ("mission starts at a bad time")
     else
         saveX = x
         saveY = y
-        --DB might work for any sector ftw
         Player():registerCallback("onSectorEntered", "makeBoss")
     end
 end
 
 function makeBoss()
     if sectorCheck(saveX, saveY) then
-        -- DB check coords again, login seems to trigger this
-        print("make boss hits")
-
         config = originalConfig
         local factionName = config.factionName
         local faction = Galaxy():findFaction(factionName)
@@ -59,30 +52,11 @@ function makeBoss()
     end
 end
 
---[[
-function checkShipCount ()
-    local entities = {Sector():getEntitiesByType(EntityType.Ship)}
-    local shipCount = 0
-    for _, entity in pairs(entities) do
-        shipCount = shipCount + 1
-    end
-    if shipCount > 1 then
-        return false
-    else
-        return true
-    end
-end
-]]--
-
 function sectorCheck (saveX, saveY)
     local x, y = Sector():getCoordinates()
-    print("current sector: " .. x .. "  " .. y)
-    print("saved coords  : " .. saveX .. " " .. saveY)
     if x == saveX and y == saveY then
-        print("check true")
         return true
     else 
-        print("check false")
         return false
     end
 end

@@ -1,7 +1,6 @@
--- add upgrades
 -- gen and balance better end game turrets?  maybe guardian loot somewhat
--- DB 8 set server keyv to check what sectors have the script?  or check sector? or addonce?
--- DB 9 check if ... needs a saved variable
+-- DB 10 maybe add a warning when spawning in multi bosses to one sector?
+-- DB 11 remove command
 
 package.path = package.path .. ";data/scripts/lib/?.lua"
 package.path = package.path .. ";data/scripts/?.lua"

@@ -8,6 +8,8 @@
 !bossConfig.lua
 !bossDeath.lua
 !bossSector.lua
+!bossPlayerTrigger.lua
+!bossMission
 # etc...
 
 # ...even if they are in subdirectories

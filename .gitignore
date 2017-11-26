@@ -9,7 +9,7 @@
 !bossDeath.lua
 !bossSector.lua
 !bossPlayerTrigger.lua
-!bossMission
+!bossMission.lua
 # etc...
 
 # ...even if they are in subdirectories

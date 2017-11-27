@@ -19,6 +19,7 @@ server/data/scripts/player/cmd/bossConfig
 Added a playaer command that only need to be entered 1 time /bossPlayerTrigger.  This will trigger missions to be spawned on military outposts for the player.
 
 Fly to a sector, do /summon.  When you fly out and back in you will see a boss and a message warning you about the boss
+do /summon remove to stop the boss from summoning in the future
 
 To set custom values (space is not working yet, so the messages might be tough)
 

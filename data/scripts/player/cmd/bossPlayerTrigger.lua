@@ -6,7 +6,6 @@ local Balancing = require ("galaxy")
 require ("stringutility")
 
 function initialize ()
-	print("trigger starts")
 	player = Player()
 	player:registerCallback("onSectorEntered", "checkMilitaryOutposts")
 end

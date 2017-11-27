@@ -9,11 +9,10 @@ local TurretGenerator = require ("turretgenerator")
 local originalConfig = require("player/cmd/bossConfig")
 local config = {}
 local timer = Timer()
-local pastTime = 0
+local remove = false
 
-function initialize(...)
-	parseCommand(...)
-	Sector():registerCallback("onPlayerEntered", "bossTimer")
+function initialize(sector, ...)
+	parseCommand(sector, ...)
 end
 
 function bossInit ()
@@ -48,7 +47,7 @@ end
 function welcomeText ()
 	local players = {Sector():getPlayers()}
     for _, player in pairs(players) do
-    	player:sendChatMessage("Warning"%_t, 3, "Enemies have been seen patrolling this sector " .. timer.seconds .. " seconds ago."%_t)
+    	player:sendChatMessage("Warning"%_t, 3, "Enemies have been seen patrolling this sector for " .. timer.seconds .. " seconds."%_t)
     end
 end
 
@@ -71,15 +70,29 @@ function tellPlayers (message)
     end
 end
 
-function parseCommand(...)
+function parseCommand(sector, ...)
 	local i = 1
+	local remove = false
 	config = originalConfig
 	for _, customValue in pairs({...}) do
+		if customValue == "remove" then
+			remove = true
+		end
 		if customValue == nil or customValue == "m" then
 			i = i + 1
 		else
 			config[config.index[i]] = customValue
 			i = i + 1
 		end
+	end
+	if remove then 
+		tellPlayers("Stopping the rogue ships from patrolling this sector.")
+		local sector = Sector()
+		sector:unregisterCallback("onPlayerEntered", "bossTimer")
+		sector:removeScript("player/cmd/bossSector.lua")
+		terminate()
+	else
+		tellPlayers("Rogue ships are now patrolling this sector.")
+		sector:registerCallback("onPlayerEntered", "bossTimer")
 	end
 end

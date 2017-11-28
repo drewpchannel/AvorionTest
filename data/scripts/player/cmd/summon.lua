@@ -9,7 +9,6 @@ package.path = package.path .. ";data/scripts/?.lua"
 local configSetup = require("player/cmd/bossConfig")
 
 function initialize(...)
-	local sector = Sector()
-    Sector():addScript("player/cmd/bossSector.lua", sector, ...)
+    Sector():addScript("player/cmd/bossSector.lua", ...)
 	terminate()
 end

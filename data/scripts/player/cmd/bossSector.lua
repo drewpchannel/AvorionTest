@@ -11,7 +11,7 @@ local config = {}
 local timer = Timer()
 local remove = false
 
-function initialize(sector, ...)
+function initialize(...)
 	parseCommand(sector, ...)
 end
 
@@ -70,7 +70,7 @@ function tellPlayers (message)
     end
 end
 
-function parseCommand(sector, ...)
+function parseCommand(...)
 	local i = 1
 	local remove = false
 	config = originalConfig
@@ -92,6 +92,7 @@ function parseCommand(sector, ...)
 		sector:removeScript("player/cmd/bossSector.lua")
 		terminate()
 	else
+		local sector = Sector()
 		tellPlayers("Rogue ships are now patrolling this sector.")
 		sector:registerCallback("onPlayerEntered", "bossTimer")
 	end

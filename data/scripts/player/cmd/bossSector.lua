@@ -81,7 +81,13 @@ function parseCommand(...)
 		if customValue == nil or customValue == "m" then
 			i = i + 1
 		else
-			config[config.index[i]] = customValue
+			if tonumber(config[config.index[i]]) and tonumber(customValue) then
+				config[config.index[i]] = customValue
+			elseif not tonumber(config[config.index[i]]) then
+				config[config.index[i]] = customValue
+			else
+				print("a number was expected for " .. i .. " custom value, which was: " .. customValue)
+			end
 			i = i + 1
 		end
 	end

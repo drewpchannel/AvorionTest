@@ -1,5 +1,5 @@
 function initialize ()
-	print("DB Trying to get ents: ")
+	print("DB check if this runs the INIT, then remove")
 	local sector = Sector()
 	local foundStation
 	local entityFinder = sector:getEntitiesByType(EntityType.Station)
@@ -8,12 +8,12 @@ function initialize ()
 			foundStation = entity
 		end
     end
-    print("DB I found " .. foundStation.title)
     bulletin = createMission(foundStation)
     foundStation:invokeFunction("bulletinboard", "postBulletin", bulletin)
 end
 
 function createMission (foundStation)
+	print("DB check if this runs, then remove")
 	local specs = SectorSpecifics()
 	local x, y = Sector():getCoordinates()
 	local coords = specs.getShuffledCoordinates(random(), x, y, 2, 15)

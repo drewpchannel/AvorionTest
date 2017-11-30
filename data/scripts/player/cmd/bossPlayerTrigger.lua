@@ -27,7 +27,6 @@ function checkMilitaryOutposts ()
 end
 
 function createMission (foundStation)
-	print("DB 25 check that changes hit createMission")
 	local specs = SectorSpecifics()
 	local x, y = Sector():getCoordinates()
 	local coords = specs.getShuffledCoordinates(random(), x, y, 2, 15)
@@ -54,7 +53,7 @@ function createMission (foundStation)
 	reward = 50000 * Balancing.GetSectorRichnessFactor(Sector():getCoordinates())
 
 	local bulletin =
-	{
+		{
 	    brief = "Destroy a Rogue Ship"%_t,
 	    description = description,
 	    difficulty = "Very Hard /*difficulty*/"%_t,

@@ -6,23 +6,38 @@ require("mission")
 local PlanGenerator = require ("plangenerator")
 local ShipUtility = require ("shiputility")
 local TurretGenerator = require ("turretgenerator")
-local originalConfig = require("player/cmd/bossConfig")
+local config = require("player/cmd/bossMissionConfig")
 local saveX = 0
 local saveY = 0
+local newConfig = {
+    factionName = "Atronians",
+    --ship plans should be saved to data/plans
+    shipXML = "Idk3.xml",
+    title = "something",
+    name = "something2",
+    --sets the amount of damage
+    turrets = 3000
+}
 
 function initialize(giverIndex, x, y, reward)
     if giverIndex == nil then 
     else
         saveX = x
         saveY = y
+        local distanceFromCenter = length(vec2(Sector():getCoordinates()))
+        for k in pairs(config) do
+            if distanceFromCenter < config[k].distance then
+                createShipConfig(config[k])
+                break
+            end
+        end
         Player():registerCallback("onSectorEntered", "makeBoss")
     end
 end
 
 function makeBoss()
     if sectorCheck(saveX, saveY) then
-        config = originalConfig
-        local factionName = config.factionName
+        local factionName = newConfig.factionName
         local faction = Galaxy():findFaction(factionName)
         if Galaxy():findFaction(factionName) == nil then
             faction = Galaxy():createFaction(factionName, 310, 0)
@@ -31,20 +46,20 @@ function makeBoss()
             faction.staticRelationsToPlayers = true
         end
 
-        local plan = LoadPlanFromFile("data/plans/" .. config.shipXML)
+        local plan = LoadPlanFromFile("data/plans/" .. newConfig.shipXML)
         local pos = random():getVector(-1000, 1000)
         pos = MatrixLookUpPosition(-pos, vec3(0, 1, 0), pos)
 
         local ship = Sector():createShip(faction, "Astrayas Class", plan, pos) 
-        ship.title = config.title
-        ship.name = config.name
+        ship.title = newConfig.title
+        ship.name = newConfig.name
         ship.crew = ship.minCrew
         ship:addScript("ai/patrol.lua")
         ship:addScript("player/cmd/bossDeath.lua")
 
         TurretGenerator.initialize(random():createSeed())
         local turret = TurretGenerator.generateArmed(x, y)
-        local numTurrets = config.turrets
+        local numTurrets = newConfig.turrets
 
         ShipUtility.addTurretsToCraft(ship, turret, numTurrets)
         Loot(ship.index):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, Rarity(RarityType.Exotic), WeaponType.RepairBeam)))
@@ -58,5 +73,11 @@ function sectorCheck (saveX, saveY)
         return true
     else 
         return false
+    end
+end
+
+function createShipConfig(configk)
+    for k, v in pairs(configk) do
+        newConfig[k] = v
     end
 end

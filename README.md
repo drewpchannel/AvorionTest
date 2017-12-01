@@ -18,6 +18,17 @@ server/data/scripts/player/cmd/bossConfig
 ### In game
 Added a playaer command that only need to be entered 1 time /bossPlayerTrigger.  This will trigger missions to be spawned on military outposts for the player.
 
+bossMissionConfig checks the distance from the center and picks the appropriate mission.  To setup a new mission, pick a new name like distanceC. Paste it into the config file where the shortest distance gets picked first.  So distance  425 would have to go between 350 and 450 in the bossMissionConfig file.  More turrets will just create more damage.
+
+	distanceC = {
+		distance = 425,
+		factionName = "Warpers",
+		shipXML	= "zygonian.xml",
+		turrets = 2000,
+		title = "something",
+		name = "something2"
+	},
+
 Fly to a sector, do /summon.  When you fly out and back in you will see a boss and a message warning you about the boss
 do /summon remove to stop the boss from summoning in the future
 

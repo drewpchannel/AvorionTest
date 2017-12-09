@@ -9,7 +9,9 @@ local missionConfig = {
 		shipXML	= "zygonian.xml",
 		turrets = 2000,
 		title = "something",
-		name = "something2"
+		name = "something2",
+		deathRewards = 275000,
+		deathMessage = "These titanium fighters can be tough!  Good job!",
 	},
 	distanceB = {
 		distance = 450,
@@ -17,7 +19,9 @@ local missionConfig = {
 		shipXML	= "ironnugget.xml",
 		turrets = 500,
 		title = "something",
-		name = "something2"
+		name = "something2",
+		deathRewards = 255000,
+		deathMessage = "Slowly we can remove this filth from the area.",
 	},
 }
 return missionConfig

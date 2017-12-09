@@ -34,7 +34,7 @@ function bossInit ()
 	ship.name = config.name
 	ship.crew = ship.minCrew
 	ship:addScript("ai/patrol.lua")
-	ship:addScript("player/cmd/bossDeath.lua")
+	ship:addScript("player/cmd/bossDeath.lua", config.deathMessage, config.deathRewards)
 
 	TurretGenerator.initialize(random():createSeed())
 	local turret = TurretGenerator.generateArmed(x, y)

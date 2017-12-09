@@ -50,7 +50,7 @@ function createMission (foundStation)
 
 	local description = "A nearby sector has been occupied by a rogue ship and they have been attacking our convoys and traders.\nWe cannot let that scum do whatever they like. We need someone to take care of them.\n\nSector: (${x} : ${y})"%_t
 
-	reward = 50000 * Balancing.GetSectorRichnessFactor(Sector():getCoordinates())
+	reward = 70000 * Balancing.GetSectorRichnessFactor(Sector():getCoordinates())
 
 	local bulletin =
 		{

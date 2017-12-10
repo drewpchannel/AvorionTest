@@ -11,7 +11,7 @@
 !bossPlayerTrigger.lua
 !bossMission.lua
 !bossMissionConfig.lua
-C:\avs\data\plans/
+!C:\avs\data\plans/
 # etc...
 
 # ...even if they are in subdirectories

@@ -11,7 +11,7 @@
 !bossPlayerTrigger.lua
 !bossMission.lua
 !bossMissionConfig.lua
-!data/plans
+!data/plans/*
 # etc...
 
 # ...even if they are in subdirectories

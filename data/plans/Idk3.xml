@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<auto_-232070604600297850 accumulateHealth="true" convex="false">
+	<item parent="-1" index="0">
+		<block lx="-1" ly="-1" lz="-1" ux="1" uy="1" uz="1" index="1" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="1">
+		<block lx="-1" ly="-1" lz="-3" ux="1" uy="1" uz="-1" index="3" material="1" look="1" up="3" color="bfbfbfbf"/>
+	</item>
+	<item parent="1" index="2">
+		<block lx="-1" ly="-1" lz="-3.5" ux="1" uy="1" uz="-3" index="60" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="2" index="3">
+		<block lx="-1" ly="-1" lz="-4" ux="1" uy="1" uz="-3.5" index="60" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="4">
+		<block lx="1" ly="-1" lz="0.75" ux="4" uy="1" uz="1.25" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="5">
+		<block lx="-4" ly="-1" lz="0.75" ux="-1" uy="1" uz="1.25" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="6">
+		<block lx="1" ly="-1" lz="0.25" ux="4" uy="1" uz="0.75" index="1" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="7">
+		<block lx="-4" ly="-1" lz="0.25" ux="-1" uy="1" uz="0.75" index="1" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="8">
+		<block lx="1.00000191" ly="-1" lz="-0.25" ux="4.00000191" uy="1" uz="0.25" index="1" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="9">
+		<block lx="-4.00000191" ly="-1" lz="-0.25" ux="-1.00000191" uy="1" uz="0.25" index="1" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="10">
+		<block lx="1" ly="-1" lz="-0.75" ux="4" uy="1" uz="-0.25" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="11">
+		<block lx="-4" ly="-1" lz="-0.75" ux="-1" uy="1" uz="-0.25" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="1" index="12">
+		<block lx="1" ly="-1" lz="-1.25" ux="4" uy="1" uz="-0.75" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+	<item parent="0" index="13">
+		<block lx="-4" ly="-1" lz="-1.25" ux="-1" uy="1" uz="-0.75" index="7" material="0" look="1" up="3" color="ffbfaea3"/>
+	</item>
+</auto_-232070604600297850>

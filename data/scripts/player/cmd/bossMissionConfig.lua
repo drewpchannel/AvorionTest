@@ -4,16 +4,26 @@
 
 local missionConfig = {
 	distanceA = {
-		distance = 350,
+		distance = 250,
 		factionName = "Warpers",
 		shipXML	= "zygonian.xml",
-		turrets = 2000,
+		turrets = 4000,
 		title = "something",
 		name = "something2",
 		deathRewards = 275000,
 		deathMessage = "These titanium fighters can be tough!  Good job!",
 	},
 	distanceB = {
+		distance = 300,
+		factionName = "Eidolon Security",
+		shipXML	= "EarlyNaoSolNovus.xml",
+		turrets = 1500,
+		title = "Destroyer",
+		name = "Sol Novus",
+		deathRewards = 255000,
+		deathMessage = "Thank you captain.  We will have more work in the future!",
+	},	
+	distanceC = {
 		distance = 450,
 		factionName = "Warpers",
 		shipXML	= "ironnugget.xml",

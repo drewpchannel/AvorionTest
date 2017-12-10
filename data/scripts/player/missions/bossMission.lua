@@ -113,7 +113,7 @@ function createLoot(shipIndex)
         {rarity = Rarity(RarityType.Exceptional), dist = 250},
         {rarity = Rarity(RarityType.Rare), dist = 300},
         {rarity = Rarity(RarityType.Uncommon), dist = 350},
-        {rarity = Rarity(RarityType.Common), dist = 400},
+        {rarity = Rarity(RarityType.Common), dist = 450},
     }
 
     local turrets =
@@ -123,7 +123,7 @@ function createLoot(shipIndex)
         {rarity = Rarity(RarityType.Exceptional), dist = 250},
         {rarity = Rarity(RarityType.Rare), dist = 300},
         {rarity = Rarity(RarityType.Uncommon), dist = 350},
-        {rarity = Rarity(RarityType.Common), dist = 400},
+        {rarity = Rarity(RarityType.Common), dist = 450},
     }
 
     UpgradeGenerator.initialize(random():createSeed())
@@ -132,16 +132,18 @@ function createLoot(shipIndex)
         print(p.dist .. " original : dfc " .. distanceFromCenter)
         if p.dist > distanceFromCenter then
 
-            print("gen upgrade loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
-            Loot(boss.index):insert(UpgradeGenerator.generateSystem(p.rarity))
+            --print("gen upgrade loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
+            Loot(shipIndex):insert(UpgradeGenerator.generateSystem(p.rarity))
+            Loot(shipIndex):insert(UpgradeGenerator.generateSystem(p.rarity))
             break
         end
     end
 
     for _, p in pairs(turrets) do
         if p.dist > distanceFromCenter then
-            print("gen turret loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
-            Loot(boss.index):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, p.rarity)))
+            -- print("gen turret loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
+            Loot(shipIndex):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, p.rarity)))
+            Loot(shipIndex):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, p.rarity)))
             break
         end
     end

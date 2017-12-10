@@ -3,6 +3,7 @@
 -- The function will check the lowest value (closest to the center) first
 -- DB 22 should I change the xml directory?  what do updates wipe
 -- DB 23 check if shields are charged when the ship is made
+-- DB 24 randomize messages and similar ships and mission name lol
 
 local missionConfig = {
 	distanceA = {
@@ -14,8 +15,18 @@ local missionConfig = {
 		name = "K3",
 		deathRewards = 675000,
 		deathMessage = "The galaxy is a better place with that carrier destroyed.",
-	},	
+	},		
 	distanceB = {
+		distance = 200,
+		factionName = "Tahas",
+		shipXML	= "LowerOgoTahatoc.xml",
+		turrets = 5000,
+		title = "Carrier",
+		name = "Tahaco",
+		deathRewards = 575000,
+		deathMessage = "The galaxy is a better place with that carrier destroyed.",
+	},	
+	distanceC = {
 		distance = 250,
 		factionName = "Zygonians",
 		shipXML	= "UpperXanZygonian.xml",
@@ -24,8 +35,18 @@ local missionConfig = {
 		name = "ZenZynan",
 		deathRewards = 475000,
 		deathMessage = "That could not have been easy!  Excellent work!",
+	},	
+	distanceD = {
+		distance = 280,
+		factionName = "Isle of Man",
+		shipXML	= "HorizonCarrierXan.xml",
+		turrets = 3000,
+		title = "Carrier",
+		name = "Horizon Carrier",
+		deathRewards = 400000,
+		deathMessage = "That could not have been easy!  Excellent work!",
 	},
-	distanceC = {
+	distanceE = {
 		distance = 300,
 		factionName = "Eidolon Security",
 		shipXML	= "EarlyNaoSolNovus.xml",
@@ -35,7 +56,7 @@ local missionConfig = {
 		deathRewards = 355000,
 		deathMessage = "Thank you captain.  We will have more work in the future!",
 	},		
-	distanceD = {
+	distanceF = {
 		distance = 400,
 		factionName = "Beltulla",
 		shipXML	= "TitaniumDestroyer.xml",
@@ -45,7 +66,7 @@ local missionConfig = {
 		deathRewards = 255000,
 		deathMessage = "Thank you captain.  We will have more work in the future!",
 	},	
-	distanceE = {
+	distanceG = {
 		distance = 450,
 		factionName = "Warpers",
 		shipXML	= "ironnugget.xml",
@@ -54,6 +75,16 @@ local missionConfig = {
 		name = "something2",
 		deathRewards = 155000,
 		deathMessage = "Slowly we can remove this filth from the area.",
+	},	
+	distanceH = {
+		distance = 490,
+		factionName = "Rusty Horde",
+		shipXML	= "IronRocket.xml",
+		turrets = 200,
+		title = "Mantis Utility",
+		name = "FleshBox Mobile",
+		deathRewards = 100000,
+		deathMessage = "Scavengers will steal anything.",
 	},
 }
 return missionConfig

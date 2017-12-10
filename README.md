@@ -1,5 +1,11 @@
 # Avorion Workshop Ship Spawner
 ## Contribution
+
+### What does this mod do?
+This mod allows players to type in a command to add missions to the military outposts.  This adds difficult bosses that multiple people can fight.
+
+Sectors can also be edited to create a missions area.  Just by entering the area, players can fight a custom ship.  This is geared towards servers with mods or a need for new content.
+
 ### General note
 Adding the /summon command to admins \ moderators will let them setup a trigger in the sector that they are currently in.  Players who enter this sector will trigger the boss to spawn in and he will be hostile.
 

@@ -16,18 +16,15 @@ local saveY = 0
 local distanceFromCenter = 1000
 local newConfig = {
     factionName = "Atronians",
-    --ship plans should be saved to data/plans
     shipXML = "Idk3.xml",
     title = "something",
     name = "something2",
-    --sets the amount of damage
     turrets = 3000,
     deathMessage = "Thank you",
     reward = 270000
 }
 
 function initialize(giverIndex, x, y, reward)
-    print("new init -----------------------------------------")
     if giverIndex == nil then 
     else
         saveX = x 
@@ -35,7 +32,6 @@ function initialize(giverIndex, x, y, reward)
         distanceFromCenter = length(vec2(Sector():getCoordinates()))
         for k in pairs(config) do
             if distanceFromCenter < config[k].distance then
-                print("trying to setup config from center: " .. config[k].shipXML)
                 createShipConfig(config[k])
                 break
             end
@@ -65,7 +61,6 @@ function makeBoss()
         ship.crew = ship.minCrew
         ship:addScript("ai/patrol.lua")
         ship:addScript("player/cmd/bossDeath.lua", newConfig.deathMessage, newConfig.reward)
-        --ship:registerCallback("onDestroyed", "bossDead")
         createLoot(ship.index)
 
         TurretGenerator.initialize(random():createSeed())
@@ -94,18 +89,15 @@ function createShipConfig(configk)
 end
 
 function bossDead()
-    print("new script boss died")
     local players = {Sector():getPlayers()}
     for _, player in pairs(players) do
         print("trying to send reward: " .. newConfig.reward)
         player:sendChatMessage("Human Federation", 0, config.deathMessage)
-        -- DB 3 This should work but I have not tested it yet 
         player:receive(config.reward)
     end
 end 
 
 function createLoot(shipIndex)
-    print("trying to create loot ------- ")
     local upgrades =
     {
         {rarity = Rarity(RarityType.Legendary), dist = 150},
@@ -129,10 +121,7 @@ function createLoot(shipIndex)
     UpgradeGenerator.initialize(random():createSeed())
 
     for _, p in pairs(upgrades) do
-        print(p.dist .. " original : dfc " .. distanceFromCenter)
         if p.dist > distanceFromCenter then
-
-            --print("gen upgrade loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
             Loot(shipIndex):insert(UpgradeGenerator.generateSystem(p.rarity))
             Loot(shipIndex):insert(UpgradeGenerator.generateSystem(p.rarity))
             break
@@ -141,7 +130,6 @@ function createLoot(shipIndex)
 
     for _, p in pairs(turrets) do
         if p.dist > distanceFromCenter then
-            -- print("gen turret loot, dist: " .. distanceFromCenter .. " rarity " .. p.rarity)
             Loot(shipIndex):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, p.rarity)))
             Loot(shipIndex):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, p.rarity)))
             break

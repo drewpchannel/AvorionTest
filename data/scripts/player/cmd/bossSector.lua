@@ -41,7 +41,6 @@ function bossInit ()
 	local numTurrets = config.turrets
 
 	ShipUtility.addTurretsToCraft(ship, turret, numTurrets)
-    Loot(ship.index):insert(InventoryTurret(TurretGenerator.generate(x, y, 0, Rarity(RarityType.Exotic), WeaponType.RepairBeam)))
 end
 
 function welcomeText ()
